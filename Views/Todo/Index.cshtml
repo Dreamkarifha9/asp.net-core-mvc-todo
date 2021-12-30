@@ -1,0 +1,36 @@
+@model List<AspnetCoreTODO.Models.Todo>
+  <div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" asp-controller="Todo" class="btn btn-success">Create</a>
+   <a asp-action="ExportToExcel" asp-controller="Todo" class="btn btn-primary">Export to Excel</a>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+          <ul class="list-group mt-2">
+             @foreach (var item in Model) {
+                <li class="list-group-item pt-n1">
+                  <h2 class="mb-1">@item.Name
+                     <div/>
+                  </h2>
+                  
+                  <button type="button" class="btn btn-dark ml-2 float-right ">Complete</button>
+                    
+                  <a href="@Url.Action("Delete", new { item.id})" class="btn btn-danger float-right">Delete</a>
+                </li>
+             }
+          </ul>
+    </div>
+  </div>
+  @section Scripts{
+    <script>
+        $(document).ready(function() {
+            $("button").on("click", function(e){
+                $(this).closest('li').find('div').toggleClass("line");
+                  console.log('test');
+            });
+
+        });
+    </script>
+}

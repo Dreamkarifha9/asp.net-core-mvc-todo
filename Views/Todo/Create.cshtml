@@ -1,0 +1,18 @@
+@model AspnetCoreTODO.Models.Todo
+
+<form asp.action="Create" asp.area="Todos" method="post">
+    <div class="row">
+        <div class="col-lg-l2">
+              <div class="form-group">
+            <label>Name</label>
+            <input asp-for="Name" type="text" class="form-control required" placeholder="Enter Name todo" tabindex="2">
+          </div>
+          <div class="card-footer">
+            <center>
+              <button type="submit" class="btn btn-primary">Create Todo</button>
+              <a asp-action="Index" asp-controller="Todo" class="btn btn-secondary">Cancel</a>
+            </center>
+          </div>
+        </div>
+    </div>
+</form>
